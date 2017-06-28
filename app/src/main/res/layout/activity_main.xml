@@ -22,4 +22,16 @@
         tools:layout_editor_absoluteX="-2dp"
         tools:layout_editor_absoluteY="29dp" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/button2"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:text="Kill Process" />
+
 </RelativeLayout>
