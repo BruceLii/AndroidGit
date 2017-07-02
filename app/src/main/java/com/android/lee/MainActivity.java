@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Process;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
             Log.e("onServiceDisconnected", " ***");
-            Toast.makeText(MainActivity.this,  "onServiceDisconnected" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "onServiceDisconnected", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -37,6 +38,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
+        findViewById(R.id.button3).setOnClickListener(this);
+
+        Log.e("pid", Process.myPid()+"");
     }
 
 
@@ -50,6 +54,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             case R.id.button2:
                 unbindService(connection);
+                break;
+
+            case R.id.button3:
+
+                Toast.makeText(this, "process ID" + Process.myPid(), Toast.LENGTH_SHORT).show();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Process.killProcess(Process.myPid());
+                    }
+                }).start();
+
                 break;
 
         }
