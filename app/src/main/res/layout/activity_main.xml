@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/root"
     android:layout_height="match_parent"
+    android:onClick="onClick"
     tools:context="com.android.lee.MainActivity">
 
     <Button
@@ -17,21 +19,36 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button"
         android:text="bindService"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="29dp" />
+        tools:layout_editor_absoluteY="29dp"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_toLeftOf="@+id/button3"
+        android:layout_toStartOf="@+id/button3"
+        android:layout_marginRight="34dp"
+        android:layout_marginEnd="34dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button2"
+        android:text="Kill Process"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button3"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp"
-        android:text="Kill Process" />
+        android:layout_alignStart="@+id/button3"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:text="动画" />
 
 </RelativeLayout>

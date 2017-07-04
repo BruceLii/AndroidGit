@@ -20,7 +20,12 @@
         <service
             android:name=".service.IMService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
+
+
+        <activity android:name=".animations.AnimationActivity"></activity>
+
+
     </application>
 
 </manifest>
