@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.lee.animations.AnimationActivity;
 import com.android.lee.service.IMService;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -39,14 +40,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
+        findViewById(R.id.button4).setOnClickListener(this);
 
-        Log.e("pid", Process.myPid()+"");
+        findViewById(R.id.button4).performClick();
+        Log.e("pid", Process.myPid() + "");
     }
-
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.root:
+                Toast.makeText(this, "rootclick", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.button:
                 Intent serviceIntent = new Intent(this, IMService.class);
                 bindService(serviceIntent, connection, Context.BIND_AUTO_CREATE);
@@ -56,6 +61,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 unbindService(connection);
                 break;
 
+            case R.id.button4:
+                Intent intent = new Intent(this, AnimationActivity.class);
+                startActivity(intent);
+                break;
             case R.id.button3:
 
                 Toast.makeText(this, "process ID" + Process.myPid(), Toast.LENGTH_SHORT).show();

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff000000"
+    tools:context="com.android.lee.animations.AnimationActivity">
+
+    <ImageView
+        android:id="@+id/viewfinder_bg"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/camera_frame2" />
+
+    <ImageView
+        android:id="@+id/viewfinder_laser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/viewfinder_bg"
+        android:layout_alignRight="@id/viewfinder_bg"
+        android:layout_alignTop="@id/viewfinder_bg"
+        android:scaleType="fitXY"
+        android:src="@mipmap/scan_capture_laser" />
+
+</RelativeLayout>
