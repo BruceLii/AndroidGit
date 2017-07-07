@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidGit</string>
+    <string name="title_activity_anim_list">AnimListActivity</string>
 </resources>

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.lee.animations.AnimListActivity;
 import com.android.lee.animations.AnimationActivity;
 import com.android.lee.service.IMService;
 
@@ -62,7 +63,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.button4:
-                Intent intent = new Intent(this, AnimationActivity.class);
+                Intent intent = new Intent(this, AnimListActivity.class);
                 startActivity(intent);
                 break;
             case R.id.button3:
