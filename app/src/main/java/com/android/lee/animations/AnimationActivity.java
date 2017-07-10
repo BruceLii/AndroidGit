@@ -5,16 +5,14 @@ import android.os.Bundle;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.AbsListView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 
 import com.android.lee.R;
 
 public class AnimationActivity extends Activity {
     protected static final int ANIMATION_DURATION = 3500;
 
-    protected ImageView viewfinder_laser,viewfinder_bg;
+    protected ImageView viewfinder_laser, viewfinder_bg;
     protected TranslateAnimation laserDownAnimation;
     protected TranslateAnimation laserUpAnimation;
 
@@ -25,11 +23,7 @@ public class AnimationActivity extends Activity {
 
         viewfinder_laser = findViewById(R.id.viewfinder_laser);
         viewfinder_bg = findViewById(R.id.viewfinder_bg);
-
-
-
-
-
+        
         viewfinder_bg.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {

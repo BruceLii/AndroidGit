@@ -22,10 +22,11 @@
             android:enabled="true"
             android:exported="false" />
 
-
-        <activity android:name=".animations.AnimationActivity"></activity>
-
-
+        <activity android:name=".animations.AnimationActivity" />
+        <activity
+            android:name=".animations.AnimListActivity"
+            android:label="@string/title_activity_anim_list" />
+        <activity android:name=".animations.TargetAnimationActivity"></activity>
     </application>
 
 </manifest>
