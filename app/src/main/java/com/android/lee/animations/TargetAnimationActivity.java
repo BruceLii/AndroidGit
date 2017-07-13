@@ -1,5 +1,6 @@
 package com.android.lee.animations;
 
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
@@ -33,6 +34,11 @@ public class TargetAnimationActivity extends Activity implements View.OnClickLis
     private Button scale;
     private Button rotation;
     private Button alpha;
+    private TextView tv_indicator;
+    private Button objectAnimator;
+    private Button objectAnimator_rotation;
+    private Button objectAnimator_transactionX;
+    private Button objectAnimator_rotationY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +55,23 @@ public class TargetAnimationActivity extends Activity implements View.OnClickLis
         transation = (Button) findViewById(R.id.transation);
         rotation = (Button) findViewById(R.id.rotation);
         scale = (Button) findViewById(R.id.scale);
+        tv_indicator = findViewById(R.id.tv_indicator);
+        objectAnimator = findViewById(R.id.objectAnimator);
+        objectAnimator_rotation = findViewById(R.id.objectAnimator_rotation);
+        objectAnimator_transactionX = findViewById(R.id.objectAnimator_transactionX);
+        objectAnimator_rotationY = findViewById(R.id.objectAnimator_rotationY);
 
 
         alpha.setOnClickListener(this);
         transation.setOnClickListener(this);
         rotation.setOnClickListener(this);
         scale.setOnClickListener(this);
+        objectAnimator.setOnClickListener(this);
+        objectAnimator_rotation.setOnClickListener(this);
+        objectAnimator_transactionX.setOnClickListener(this);
+        objectAnimator_rotationY.setOnClickListener(this);
 
-        AnimationDrawable animation = (AnimationDrawable)root.getBackground();
+        AnimationDrawable animation = (AnimationDrawable) root.getBackground();
         animation.start();
 
     }
@@ -64,6 +79,26 @@ public class TargetAnimationActivity extends Activity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.objectAnimator_rotationY:
+                ObjectAnimator animator_rotationY = ObjectAnimator.ofFloat(tv_indicator, "rotationY", 0,180,0);
+                animator_rotationY.setDuration(2000);
+                animator_rotationY.start();
+                break;
+            case R.id.objectAnimator_transactionX:
+                ObjectAnimator animator_x = ObjectAnimator.ofFloat(tv_indicator, "translationX", 0, 360, -360, 0, 0, 360, -360, 0);
+                animator_x.setDuration(2000);
+                animator_x.start();
+                break;
+            case R.id.objectAnimator_rotation:
+                ObjectAnimator animator_1 = ObjectAnimator.ofFloat(tv_indicator, "rotation", 0, 360, -360);
+                animator_1.setDuration(3500);
+                animator_1.start();
+                break;
+            case R.id.objectAnimator:
+                ObjectAnimator animator = ObjectAnimator.ofFloat(tv_indicator, "alpha", 1, 0, 1);
+                animator.setDuration(2000);
+                animator.start();
+                break;
             case R.id.button5:
                 startAnimation(textView);
                 break;
