@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.android.lee.animations.AnimListActivity;
 import com.android.lee.animations.AnimationActivity;
 import com.android.lee.service.IMService;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -43,16 +46,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button4).setOnClickListener(this);
 
-        findViewById(R.id.button4).performClick();
+//        findViewById(R.id.button4).performClick();
         Log.e("pid", Process.myPid() + "");
+
+        MobileAds.initialize(this, getString(R.string.ad_app_ID));
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice("E254B74D5782E54433C7E8C193063B42")
+                .build();
+
+        mAdView.loadAd(adRequest);
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.root:
-                Toast.makeText(this, "rootclick", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.root:
+//                Toast.makeText(this, "rootclick", Toast.LENGTH_SHORT).show();
+//                break;
             case R.id.button:
                 Intent serviceIntent = new Intent(this, IMService.class);
                 bindService(serviceIntent, connection, Context.BIND_AUTO_CREATE);
