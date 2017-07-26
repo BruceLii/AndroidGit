@@ -16,11 +16,19 @@ import com.android.lee.animations.AnimListActivity;
 import com.android.lee.service.IMService;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     AdView mAdView;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
+    private InterstitialAd mInterstitialAd;
+    private RewardedVideoAd mAd;
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -40,16 +48,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MobileAds.initialize(this, getString(R.string.ad_app_ID));
+
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
 
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button4).setOnClickListener(this);
 
+
 //        findViewById(R.id.button4).performClick();
         Log.e("pid", Process.myPid() + "");
 
-        MobileAds.initialize(this, getString(R.string.ad_app_ID));
 
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
@@ -57,6 +69,49 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 .build();
 
         mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mAd = MobileAds.getRewardedVideoAdInstance(this);
+        mAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+            @Override
+            public void onRewardedVideoAdLoaded() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdOpened() {
+
+            }
+
+            @Override
+            public void onRewardedVideoStarted() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdClosed() {
+
+            }
+
+            @Override
+            public void onRewarded(RewardItem rewardItem) {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdLeftApplication() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdFailedToLoad(int i) {
+
+            }
+        });
+        mAd.loadAd(getString(R.string.install_add), new AdRequest.Builder().build());
 
     }
 
@@ -79,9 +134,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.root:
-//                Toast.makeText(this, "rootclick", Toast.LENGTH_SHORT).show();
-//                break;
+            case R.id.root:
+                if (mAd.isLoaded()) {
+                    mAd.show();
+                }
+
+
+                //add two
+                AdRequest adRequest = new AdRequest.Builder().build();
+                mInterstitialAd.loadAd(adRequest);
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
+                break;
+            case R.id.adView:
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "adView");
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "banner");
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "chlick");
+
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
+                break;
             case R.id.button:
                 Intent serviceIntent = new Intent(this, IMService.class);
                 bindService(serviceIntent, connection, Context.BIND_AUTO_CREATE);
@@ -115,4 +191,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         }
     }
+
 }
