@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">AndroidGit</string>
     <string name="title_activity_anim_list">AnimListActivity</string>
+
+    <string name="ad_app_ID">ca-app-pub-8425143084131334~3245150021</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-8425143084131334/6912932291</string>
 </resources>

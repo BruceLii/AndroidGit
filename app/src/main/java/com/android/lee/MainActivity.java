@@ -15,15 +15,11 @@ import android.widget.Toast;
 import com.android.lee.animations.AnimListActivity;
 import com.android.lee.animations.AnimationActivity;
 import com.android.lee.service.IMService;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    AdView mAdView;
-
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -53,83 +49,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //        findViewById(R.id.button4).performClick();
         Log.e("pid", Process.myPid() + "");
 
-        MobileAds.initialize(getApplicationContext(),
-                "ca-app-pub-8425143084131334~1905213856");
+        MobileAds.initialize(this, getString(R.string.ad_app_ID));
 
-
-        AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("ca-app-pub-8425143084131334/8955861456");
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("E254B74D5782E54433C7E8C193063B42")
+//                .addTestDevice("E254B74D5782E54433C7E8C193063B42")
                 .build();
 
-        adView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
 
-
-//        adView.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdLoaded() {
-//                // Code to be executed when an ad finishes loading.
-//                Log.i("Ads", "onAdLoaded");
-//            }
-//
-//            @Override
-//            public void onAdFailedToLoad(int errorCode) {
-//                // Code to be executed when an ad request fails.
-//                Log.i("Ads", "onAdFailedToLoad");
-//            }
-//
-//            @Override
-//            public void onAdOpened() {
-//                // Code to be executed when an ad opens an overlay that
-//                // covers the screen.
-//                Log.i("Ads", "onAdOpened");
-//            }
-//
-//            @Override
-//            public void onAdLeftApplication() {
-//                // Code to be executed when the user has left the app.
-//                Log.i("Ads", "onAdLeftApplication");
-//            }
-//
-//            @Override
-//            public void onAdClosed() {
-//                // Code to be executed when when the user is about to return
-//                // to the app after tapping on an ad.
-//                Log.i("Ads", "onAdClosed");
-//            }
-//        });
-    }
-
-
-
-
-    @Override
-    public void onPause() {
-        if (mAdView != null) {
-            mAdView.pause();
-        }
-        super.onPause();
-    }
-
-    /** Called when returning to the activity */
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (mAdView != null) {
-            mAdView.resume();
-        }
-    }
-
-    /** Called before the activity is destroyed */
-    @Override
-    public void onDestroy() {
-        if (mAdView != null) {
-            mAdView.destroy();
-        }
-        super.onDestroy();
     }
 
     @Override
