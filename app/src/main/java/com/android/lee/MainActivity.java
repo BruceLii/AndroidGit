@@ -13,13 +13,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.lee.animations.AnimListActivity;
-import com.android.lee.animations.AnimationActivity;
 import com.android.lee.service.IMService;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends Activity implements View.OnClickListener {
+    AdView mAdView;
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -51,13 +51,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         MobileAds.initialize(this, getString(R.string.ad_app_ID));
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+        mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
 //                .addTestDevice("E254B74D5782E54433C7E8C193063B42")
                 .build();
 
         mAdView.loadAd(adRequest);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mAdView != null) {
+            mAdView.pause();
+        }
     }
 
     @Override
