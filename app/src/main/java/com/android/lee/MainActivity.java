@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Process;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -112,6 +113,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         });
         mAd.loadAd(getString(R.string.install_add), new AdRequest.Builder().build());
+
+
+        View inflater = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+
 
     }
 

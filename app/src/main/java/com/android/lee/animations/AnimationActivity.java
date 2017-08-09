@@ -21,8 +21,8 @@ public class AnimationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
 
-        viewfinder_laser = findViewById(R.id.viewfinder_laser);
-        viewfinder_bg = findViewById(R.id.viewfinder_bg);
+        viewfinder_laser = (ImageView) findViewById(R.id.viewfinder_laser);
+        viewfinder_bg = (ImageView) findViewById(R.id.viewfinder_bg);
         
         viewfinder_bg.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override

@@ -55,11 +55,11 @@ public class TargetAnimationActivity extends Activity implements View.OnClickLis
         transation = (Button) findViewById(R.id.transation);
         rotation = (Button) findViewById(R.id.rotation);
         scale = (Button) findViewById(R.id.scale);
-        tv_indicator = findViewById(R.id.tv_indicator);
-        objectAnimator = findViewById(R.id.objectAnimator);
-        objectAnimator_rotation = findViewById(R.id.objectAnimator_rotation);
-        objectAnimator_transactionX = findViewById(R.id.objectAnimator_transactionX);
-        objectAnimator_rotationY = findViewById(R.id.objectAnimator_rotationY);
+        tv_indicator = (TextView) findViewById(R.id.tv_indicator);
+        objectAnimator = (Button) findViewById(R.id.objectAnimator);
+        objectAnimator_rotation = (Button) findViewById(R.id.objectAnimator_rotation);
+        objectAnimator_transactionX = (Button) findViewById(R.id.objectAnimator_transactionX);
+        objectAnimator_rotationY = (Button) findViewById(R.id.objectAnimator_rotationY);
 
 
         alpha.setOnClickListener(this);
