@@ -1,4 +1,4 @@
-package com.android.lee.animations;
+package com.android.stru.animations;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -23,7 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.lee.R;
+import com.android.stru.R;
 
 public class TargetAnimationActivity extends Activity implements View.OnClickListener {
     private LinearLayout root;

@@ -1,4 +1,4 @@
-package com.android.lee.service;
+package com.android.stru.service;
 
 import android.app.Service;
 import android.content.Intent;

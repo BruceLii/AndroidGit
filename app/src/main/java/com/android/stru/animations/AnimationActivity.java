@@ -1,4 +1,4 @@
-package com.android.lee.animations;
+package com.android.stru.animations;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
-import com.android.lee.R;
+import com.android.stru.R;
 
 public class AnimationActivity extends Activity {
     protected static final int ANIMATION_DURATION = 3500;

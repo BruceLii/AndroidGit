@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.lee">
+    package="com.android.stru">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.android.stru.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,15 +18,15 @@
         </activity>
 
         <service
-            android:name=".service.IMService"
+            android:name="com.android.stru.service.IMService"
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".animations.AnimationActivity" />
+        <activity android:name="com.android.stru.animations.AnimationActivity" />
         <activity
-            android:name=".animations.AnimListActivity"
+            android:name="com.android.stru.animations.AnimListActivity"
             android:label="@string/title_activity_anim_list" />
-        <activity android:name=".animations.TargetAnimationActivity"></activity>
+        <activity android:name="com.android.stru.animations.TargetAnimationActivity"></activity>
     </application>
 
 </manifest>

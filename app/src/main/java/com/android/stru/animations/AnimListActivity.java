@@ -1,11 +1,11 @@
-package com.android.lee.animations;
+package com.android.stru.animations;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.android.lee.R;
+import com.android.stru.R;
 
 public class AnimListActivity extends Activity implements View.OnClickListener {
 

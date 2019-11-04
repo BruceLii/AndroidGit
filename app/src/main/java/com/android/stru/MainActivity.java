@@ -1,4 +1,4 @@
-package com.android.lee;
+package com.android.stru;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -13,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import com.android.lee.animations.AnimListActivity;
-import com.android.lee.service.IMService;
+import com.android.stru.animations.AnimListActivity;
+import com.android.stru.service.IMService;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private ServiceConnection connection = new ServiceConnection() {

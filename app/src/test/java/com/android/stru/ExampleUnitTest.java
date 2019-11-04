@@ -1,4 +1,4 @@
-package com.android.lee;
+package com.android.stru;
 
 import org.junit.Test;
 
