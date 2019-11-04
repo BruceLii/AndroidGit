@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.stru.animations.AnimListActivity;
+import com.android.stru.demos.fragmentrelated.FragmentsCoumicationActivity;
 import com.android.stru.service.IMService;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -45,6 +46,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button4).setOnClickListener(this);
+        findViewById(R.id.button5).setOnClickListener(this);
 
 
 //        findViewById(R.id.button4).performClick();
@@ -94,6 +96,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     }
                 }).start();
 
+                break;
+
+            case R.id.button5:
+                Intent intent1 = new Intent(this, FragmentsCoumicationActivity.class);
+                startActivity(intent1);
                 break;
 
         }

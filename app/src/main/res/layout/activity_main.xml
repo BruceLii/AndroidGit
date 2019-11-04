@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="onClick"
+    android:orientation="vertical"
     tools:context="com.android.stru.MainActivity">
 
     <Button
@@ -20,46 +20,59 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="bindService"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="29dp"
         android:layout_alignBaseline="@+id/button3"
         android:layout_alignBottom="@+id/button3"
-        android:layout_toLeftOf="@+id/button3"
-        android:layout_toStartOf="@+id/button3"
+        android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
-        android:layout_marginEnd="34dp" />
+        android:layout_toStartOf="@+id/button3"
+        android:layout_toLeftOf="@+id/button3"
+        android:text="bindService"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="29dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kill Process"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="18dp" />
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="18dp"
+        android:text="Kill Process" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button3"
         android:layout_alignLeft="@+id/button3"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/button3"
-        android:layout_marginBottom="24dp"
-        android:layout_marginLeft="11dp"
         android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="24dp"
         android:text="动画" />
 
-<!--    <com.google.android.gms.ads.AdView-->
-<!--        android:id="@+id/adView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        ads:adSize="BANNER"-->
-<!--        ads:adUnitId="@string/banner_ad_unit_id">-->
-<!--    </com.google.android.gms.ads.AdView>-->
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button3"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginBottom="24dp"
+        android:text="fragment 通信" />
+
+    <!--    <com.google.android.gms.ads.AdView-->
+    <!--        android:id="@+id/adView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        ads:adSize="BANNER"-->
+    <!--        ads:adUnitId="@string/banner_ad_unit_id">-->
+    <!--    </com.google.android.gms.ads.AdView>-->
+
+</LinearLayout>

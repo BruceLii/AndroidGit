@@ -8,4 +8,7 @@
 
     <string name="interstitial_ad">ca-app-pub-8425143084131334/7306564402</string>
     <string name="install_add">ca-app-pub-8425143084131334/9422248393</string>
+    <string name="title_activity_fragments_coumication">FragmentsCoumicationActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
