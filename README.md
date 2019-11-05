@@ -7,4 +7,5 @@ which can help you save a lot of personal time  to check weather the specific fu
 #Content 
 ## 1  Get running  Process List And how to kill or Keep  them alive
  
+ -version 
  
