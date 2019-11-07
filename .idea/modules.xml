@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/AndroidGit.iml" filepath="$PROJECT_DIR$/AndroidGit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/AndroidGit-app.iml" filepath="$PROJECT_DIR$/app/AndroidGit-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/WS-AndroidGit.iml" filepath="$PROJECT_DIR$/WS-AndroidGit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/WS-AndroidGit-app.iml" filepath="$PROJECT_DIR$/app/WS-AndroidGit-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liyonglin-WS-AndroidGit.iml" filepath="$PROJECT_DIR$/liyonglin-WS-AndroidGit.iml" />
     </modules>
   </component>
 </project>
