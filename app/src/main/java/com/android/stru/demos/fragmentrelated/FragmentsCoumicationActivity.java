@@ -1,6 +1,7 @@
 package com.android.stru.demos.fragmentrelated;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -46,7 +47,18 @@ public class FragmentsCoumicationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+                onTestClickTAb();
             }
         });
+
+
+
+    }
+
+    @TimeConsumingTrace(value = "摇一摇",key = 1)
+    private void onTestClickTAb() {
+
+        Log.e("8888", "(((((((((((((((((((((9");
     }
 }
