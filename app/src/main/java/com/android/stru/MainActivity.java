@@ -11,13 +11,17 @@ import android.os.Process;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.stru.animations.AnimListActivity;
 import com.android.stru.demos.fragmentrelated.FragmentsCoumicationActivity;
 import com.android.stru.service.IMService;
+import com.iglide.Glide;
 
 public class MainActivity extends Activity implements View.OnClickListener {
+    private ImageView imageView1, imageView2, imageView3;
+
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -41,12 +45,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //
 //        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
+        imageView1 = findViewById(R.id.image1);
+        imageView2 = findViewById(R.id.image2);
+        imageView3 = findViewById(R.id.image3);
+
 
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button4).setOnClickListener(this);
         findViewById(R.id.button5).setOnClickListener(this);
+
+        findViewById(R.id.image1).setOnClickListener(this);
+        findViewById(R.id.image2).setOnClickListener(this);
+        findViewById(R.id.image3).setOnClickListener(this);
 
 
 //        findViewById(R.id.button4).performClick();
@@ -103,6 +115,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(intent1);
                 break;
 
+            case R.id.image1:
+            case R.id.image2:
+            case R.id.image3:
+                t1(view);
+                break;
         }
     }
+
+
+    public void t1(View view) {
+
+        Glide.with(this)
+                .load("https://cn.bing.com/sa/simg/hpb/LaDigue_EN-CA1115245085_1920x1080.jpg")
+                .into((ImageView) view); // inio 不能在异步线程运行
+    }
+
 }

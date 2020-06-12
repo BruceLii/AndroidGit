@@ -7,7 +7,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath 'com.android.tools.build:gradle:4.0.0'
 //        classpath 'com.github.franticn:gradle_plugin_android_aspectjx:2.0.6'
 
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
